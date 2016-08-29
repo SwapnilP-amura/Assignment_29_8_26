@@ -1,0 +1,19 @@
+Employee.all.order(salary: :desc).limit(5)
+
+--------------------------------------------------------------------------------
+
+Employee.where(:salary=>(10000..50000))
+
+--------------------------------------------------------------------------------
+
+Address.where(:city=>"Lake Rhiannaville",:resource_type=>"Employee").each do |t|
+     t.resource
+end
+                        OR
+Employee.includes(:address).where(addresses:{city:"Hintzfort"})
+
+--------------------------------------------------------------------------------
+
+Employee.joins(:address).where(:name=>"Calista Terry").pluck("name,email,street,city,pincode")
+
+-----------------------------------------------------------------------
