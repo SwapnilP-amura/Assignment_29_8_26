@@ -11,7 +11,7 @@
     c.create_address(:street=>Faker::Address.street_name,:city=>Faker::Address.city,:pincode=>Faker::Address.postcode)
 
     5.times do
-      c.employees.create(:name=>Faker::Name.name,:email=>Faker::Internet.email,:phone=>Faker::PhoneNumber.cell_phone,:salary=>rand(1000..100000),:designation=>Faker::Company.profession)
+      c.employees.create(:name=>Faker::Name.name,:email=>Faker::Internet.email,:phone=>rand(1000000000..9999999999),:salary=>rand(1000..100000),:designation=>Faker::Company.profession)
     end
 end
 
