@@ -2,7 +2,7 @@ class Employee < ActiveRecord::Base
 
   #validations
   validates :name, format: { with: /\A[a-zA-Z ]+\z/,message: "Alphabets and spaces" }
-  validates :phone, uniqueness:true , format: { with: /\d{10}/,message: "Invalid Phone Format,must be 10 digits"}
+  validates :phone, uniqueness: {scope: :company,message:"Email should be unique for each company"}, format: { with: /\d{10}/,message: "Invalid Phone Format,must be 10 digits"}
   validates :email, uniqueness: true, format: {with:/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i,message:"Email Format Invalid"}
   validates_numericality_of :salary, greater_than: 0
 
