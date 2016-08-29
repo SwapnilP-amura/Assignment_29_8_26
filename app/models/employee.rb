@@ -25,6 +25,4 @@ class Employee < ActiveRecord::Base
   def self.search_by_address(email)
     Employee.joins(:address).where(:email=>email).pluck("name,email,street,city,pincode")
   end
-
-
 end
