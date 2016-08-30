@@ -14,7 +14,7 @@
   <td><%= company.address.street%></td>
   <td><%= company.address.city%></td>
   <td><%= company.address.pincode%></td>
-  <td><%= link_to 'Edit',edit_company_path%></td>
+  <td><%= link_to 'Edit',edit_company_path(company)%></td>
 </tr>
 <% end %>
 </table>

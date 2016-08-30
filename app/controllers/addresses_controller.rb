@@ -1,5 +1,5 @@
 class AddressesController < ApplicationController
-  def show
+  def index
     @addresses=Address.all
   end
 end

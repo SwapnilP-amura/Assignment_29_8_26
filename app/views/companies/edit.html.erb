@@ -1,6 +1,6 @@
-<h1>Create New</h1>
+<h1>Update New</h1>
 
-<%=form_for @company,url:companies_path do |f| %>
+<%=form_for @company,url:company_path do |f| %>
     <%= f.label :name %>           <!--label_for attribute :name!-->
     <%= f.text_field :name,placeholder:"Name" %>
 

@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  def show
+  def index
     @employees=Employee.includes(:address).all
   end
 

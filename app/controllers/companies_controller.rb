@@ -1,11 +1,12 @@
 class CompaniesController < ApplicationController
 
-    def show
+    def index
       @companies=Company.includes(:address).all
     end
 
     def new
       @company=Company.new
+      #@company.build_address()
     end
 
     def create
@@ -13,11 +14,15 @@ class CompaniesController < ApplicationController
       @c.build_address(address_params)
 
       if @c.save
-        redirect_to company_path
+        redirect_to companies_path
       else
         render 'new'
       end
+    end
 
+    def edit
+        @company=Company.includes(:address).find(params[:id])
+        #render plain: @company.address.inspect
     end
 
     private
