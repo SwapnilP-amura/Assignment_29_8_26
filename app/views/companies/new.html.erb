@@ -1,0 +1,20 @@
+<h1>Create New</h1>
+
+<%=form_for @company,url:company_path do |f| %>
+    <%= f.label :name %>           <!--label_for attribute :name!-->
+    <%= f.text_field :name,placeholder:"Name" %>
+
+    <%= f.fields_for :address do |t|%>
+      <%= t.label :street %>           <!--label_for attribute :name!-->
+      <%= t.text_field :street,placeholder:"Street" %>
+
+      <%= t.label :city %>           <!--label_for attribute :name!-->
+      <%= t.text_field :city,placeholder:"City" %>
+
+      <%= t.label :pincode %>           <!--label_for attribute :name!-->
+      <%= t.text_field :pincode,placeholder:"Pincode" %>
+
+    <%end%>
+    <%= f.submit "Create my account"%>
+
+<%end%>
