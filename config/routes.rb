@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 #   resources :employees, concerns: :addressable
 # end
 
- resources :companies,shallow:true do
+ resources :companies,shallow:false do
    resources :employees
  end
 

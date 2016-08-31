@@ -1,4 +1,7 @@
 class EmployeesController < ApplicationController
+
+  before_action :get_employee ,only: [:show,:edit,:destroy,:update]
+
   def index
     @employees=Employee.all
   end
@@ -8,11 +11,11 @@ class EmployeesController < ApplicationController
   end
 
   def show
-      @employee=Employee.find(params[:id])
+      #@employee=Employee.find(params[:id])
   end
 
   def edit
-      @employee=Employee.find(params[:id])
+      #@employee=Employee.find(params[:id])
       #render plain: params
   end
 
@@ -28,7 +31,7 @@ class EmployeesController < ApplicationController
   end
 
   def update
-    @employee = Employee.find(params[:id])
+    #@employee = Employee.find(params[:id])
       if @employee.update(employee_params) and @employee.address.update(address_params)
         redirect_to employee_path
       else
@@ -37,7 +40,7 @@ class EmployeesController < ApplicationController
   end
 
   def destroy
-      @employee=Employee.find(params[:id])
+      #@employee=Employee.find(params[:id])
       @employee.destroy
       redirect_to employees_path
   end
@@ -51,6 +54,10 @@ class EmployeesController < ApplicationController
     def address_params
       params.require(:employee).require(:address).permit(:street,:city,:pincode)
     end
+
+    def get_employee
+      @employee=Employee.find(params[:id])
+   end
 
 
 end
