@@ -1,5 +1,5 @@
 class Address < ActiveRecord::Base
-  belongs_to :resource, polymorphic: true
+  belongs_to :resource, polymorphic: true,depen
 
   def self.find_employees_by_city(city)
     Address.where(:city=>city,:resource_type=>"Employee").map(&:resource)
@@ -8,5 +8,5 @@ class Address < ActiveRecord::Base
   def self.find_employees_by_city_2(city)
     Employee.includes(:address).where(addresses:{city:city})
   end
-  
+
 end

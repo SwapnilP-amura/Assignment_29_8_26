@@ -8,7 +8,7 @@ class Employee < ActiveRecord::Base
 
   #associations
   belongs_to :company
-  has_one :address,as: :resource
+  has_one :address,as: :resource,dependent: :destroy
 
   def self.top_five()
     Employee.all.select('id,name,salary').order(salary: :desc).limit(5)

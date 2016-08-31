@@ -4,7 +4,7 @@
     <%= f.label :name %>           <!--label_for attribute :name!-->
     <%= f.text_field :name,placeholder:"Name" %>
 
-    <%= f.fields_for :address do |t|%>
+    <%= f.fields_for @company.address do |t|%>
       <%= t.label :street %>           <!--label_for attribute :name!-->
       <%= t.text_field :street,placeholder:"Street" %>
 

@@ -15,6 +15,8 @@
   <td><%= company.address.city%></td>
   <td><%= company.address.pincode%></td>
   <td><%= link_to 'Edit',edit_company_path(company)%></td>
+  <td><%= link_to 'Show',company_path(company)%></td>
+  <td><%= link_to 'Delete',company_path(company),method:"DELETE"%></td>
 </tr>
 <% end %>
 </table>
