@@ -1,10 +1,10 @@
 <h1>Update New</h1>
 
-<%=form_for @company,url:company_path do |f| %>
+<%=form_for @company,url:companies_path do |f| %>
     <%= f.label :name %>           <!--label_for attribute :name!-->
     <%= f.text_field :name,placeholder:"Name" %>
 
-    <%= f.fields_for @company.address do |t|%>
+    <%= f.fields_for :address,@company.address do |t|%>
       <%= t.label :street %>           <!--label_for attribute :name!-->
       <%= t.text_field :street,placeholder:"Street" %>
 
